@@ -80,8 +80,8 @@
   </platform>
 
   <platform name="wp8">
-    <icon src="icons/app/platform/android/res/drawable-hdpi/appicon.png" width="99" height="99" />          
-    <icon src="icons/app/platform/android/res/drawable-hdpi/appicon.png" width="159" height="159" />
+    <icon src="icons/app/platform/android/res/drawable-hdpi/background.9.png" width="99" height="99" />          
+    <icon src="icons/app/platform/android/res/drawable-hdpi/background.9.png" width="159" height="159" />
   </platform>
 
   <platform name="android">
