@@ -64,18 +64,18 @@
   </platform>
 
   <platform name="windows">
-    <icon src="icons/app/assets/mobileweb/appicon.png" width="150" height="150" />
+    <icon src="icons/app/assets/mobileweb/app150.png" width="150" height="150" />
     <icon src="icons/app/assets/mobileweb/apple_startup_images/Default-Portrait.png" width="360" height="360" />
     <icon src="icons/app/assets/mobileweb/appicon.png" width="30" height="30" />
-    <icon src="icons/app/assets/mobileweb/apple_startup_images/Default-Portrait.png" width="310" height="310" />
-    <icon src="icons/app/assets/mobileweb/appicon.png" width="44" height="44" />
+    <icon src="icons/app/assets/mobileweb/app310.png" width="310" height="310" />
+    <icon src="icons/app/assets/mobileweb/app44.png" width="44" height="44" />
     <icon src="icons/app/assets/mobileweb/appicon.png" width="106" height="106" />
     <icon src="icons/app/assets/mobileweb/appicon.png" width="70" height="70" />
-    <icon src="icons/app/assets/mobileweb/appicon.png" width="71" height="71" />
+    <icon src="icons/app/assets/mobileweb/app71.png" width="71" height="71" />
     <icon src="icons/app/assets/mobileweb/appicon.png" width="170" height="170" />
-    <icon src="icons/app/assets/mobileweb/appicon.png" width="50" height="50" />
+    <icon src="icons/app/assets/mobileweb/app50.png" width="50" height="50" />
     <icon src="icons/app/assets/mobileweb/appicon.png" width="120" height="120" />
-    <icon src="icons/app/assets/mobileweb/apple_startup_images/Default-Portrait.png" width="310" height="150" />
+    <icon src="icons/app/assets/mobileweb/app310_150.png" width="310" height="150" />
     <icon src="icons/app/assets/mobileweb/apple_startup_images/Default-Portrait.png" width="744" height="360" />
   </platform>
 

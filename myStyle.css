@@ -9,6 +9,7 @@
 
 ::-webkit-input-placeholder {
    text-align: center;
+   color: white;
 }
 
 #box{
@@ -38,6 +39,8 @@
 .inputBox{
 	border: 2px solid #a1a1a1;
     border-radius: 25px;
+    background-color: #CC162E;
+    color: white;
 }
 
 input {
