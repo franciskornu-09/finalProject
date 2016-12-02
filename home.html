@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Predator</title>
+	<script type="text/javascript" src="scripts.js"></script>
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/jquery.mobile.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src="materialize-v0.97.5/materialize/js/materialize.min.js"></script>
+		<link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+	<link rel="stylesheet"  href="myStyle.css" />
+	 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">     
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+      <script type="text/javascript">
+        function hotel(){
+          document.location.href="hotel.html";
+        }
+
+        function atm(){
+          document.location.href="atms.html";
+        }
+
+        function fuel(){
+          document.location.href="fuelSt.html";
+        }
+      </script>
+</head>
+<body>
+	<div data-role="page" id="landingPage" style="background-image: url('login.jpg');background-size: 100% 100%">
+			<div data-role="header" style="text-shadow: none;background: white">
+				<h1 style="color: black">Dashboard</h1>
+				<a href="dashboard.html" data-role="button" data-icon="home" data-iconpos="notext" style="background: white;border: none;">Home</a>
+				<a href="dashboard.html" data-role="button" data-icon="back" data-iconpos="notext" style="background: white;border: none;">Back</a>
+			</div><!-- /header -->
+   <div data-role="content" style="text-shadow: none">
+	  <div class="row">
+	  <!-- <div class="col s5">
+	  	<i class="material-icons prefix icon-color">perm_identity</i>
+	  	<input class='validate' type='text' id='search' style="color:black" />
+	   </div> -->
+	   <div center class="input-field">
+	   <div class="col s6">
+        <input id="search" type="search" required placeholder="Search..." style="height: 20%">
+        <label for="search"></label>
+        </div>
+        <div class="col s6">
+        <a class="waves-effect blue-grey darken-1 btn" style="border-radius: 25px 10px;color: white">Search</a>
+        </div>
+
+      </div>
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">ATMs</span>
+              <p>This is a panel to display all ATM machines around you. Click on SHOW below and take a look</p>
+            </div>
+            <div class="card-action">
+              <a onclick="atm()">SHOW</a>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Fuel Station</span>
+              <p>This is a panel to display all Fuel Stations around you. Click on SHOW below and take a look</p>
+            </div>
+            <div class="card-action">
+              <a onclick="fuel()">SHOW</a>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Hotels</span>
+              <p>This is a panel to display all Restaurants around you. Click on SHOW below and take a look</p>
+            </div>
+            <div class="card-action">
+              <a onclick="hotel()">SHOW</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="map_canvas">
+      	
+      </div>
+			
+	  	</div>
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script type="text/javascript" src="cordova.js"></script>
+			<script type="text/javascript" src="scripts/platformOverrides.js"></script>
+			<script type="text/javascript" src="scripts/index.js"></script>
+			<script src="materialize-v0.97.5/materialize/js/materialize.min.js"></script>
+			
+</body>
+</html>
