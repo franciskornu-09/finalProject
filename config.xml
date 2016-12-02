@@ -28,7 +28,7 @@
   </platform>
 
   <platform name="android">
-    <icon src="icons/app/platform/android/res/drawable-hdpi/appicon.png" density="land-ldpipi" />
+    <icon src="icons/app/platform/android/res/drawable-hdpi/background.9.png" density="land-ldpipi" />
     <icon src="icons/app/platform/android/res/drawable-mdpi/appicon.png" density="mdpi" />
     <icon src="icons/app/platform/android/res/drawable-hdpi/appicon.png" density="hdpi" />
     <icon src="icons/app/platform/android/res/drawable-hdpi/appicon.png" density="xhdpi" />
