@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Predator</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.css">
+    <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+      <script src="scripts/jquery.mobile.js"></script>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src="materialize-v0.97.5/materialize/js/materialize.min.js"></script>    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      
+      #bar{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        margin-left:0px;
+        width: 330px;
+        font-size: 14px;
+        z-index: 5;
+        background-color: #fff;
+        height: 50px
+      }
+      #controls {
+        position: absolute;
+        left: 0px;
+        top: 40px;
+        margin-left: 210px;
+        width: 100px;
+        font-size: 14px;
+        z-index: 5;
+        background-color: #fff;
+      }
+    </style>
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var map;
+      var infowindow;
+
+      function initMap() {
+        if (navigator.geolocation){
+          function success(position){
+            var home={
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: home,
+          zoom: 15
+        });
+
+        var myPosition = new google.maps.Marker(
+        {
+          position: home,
+          map: map,
+          title: "myposition"
+        });
+
+        var contentInfo= "I am here";
+        myPosition.setIcon('me.png');
+        infoWindow = new google.maps.InfoWindow({
+          content:contentInfo
+        });
+
+        myPosition.addListener('click',function(){
+          infoWindow.open(map,myPosition);
+        });
+  
+       infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: home,
+          radius: 10000,
+          type: ['gas_station']
+        }, callback);
+      }
+    }
+
+    function fail(pos){
+        alert("The map failed to load");
+      }
+
+      navigator.geolocation.getCurrentPosition(success,fail, {
+            enableHighAccuracy: true,
+            timeout: 6000
+            });
+
+     function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      infoWindow = new google.maps.InfoWindow({
+          content: document.getElementById('info-content')
+        });
+
+    function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+          }
+      }
+    </script>
+
+  </head>
+  <body>
+     <div class="row" id="bar" style="background-color: white;height: 40px">
+      <div class="col s2" style="margin-top: 7px"><a href='home.html'><img src="home.png" width="30" height="25"></a></div>
+      <div class="col s2" style="margin-top: 7px"><a href='fuel.html'><img src="fuel.jpg" width="30" height="25"></a></a></div>
+      <div class="col s2" style="margin-top: 7px"><a href='hostel.html'><img src="hotel.jpg" width="30" height="25"></a></div>
+      <div class="col s2" style="margin-top: 7px"><a href='atm.html'><img src="atm.gif" width="30" height="25"></a></div>
+      <div class="col s2" style="margin-top: 7px"><a href='bus.html'><img src="bus.jpg" width="30" height="25"></a></div>
+      <div class="col s2" style="margin-top: 7px"><a href='request.html'><img src="notes.jpg" width="30" height="25"></a></div>
+    </div> 
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp0Qg1G9d_wrIKtW4bLsthYxXK9tIxTrI&libraries=places&callback=initMap" 
+    async defer></script>
+  </body>
+</html>

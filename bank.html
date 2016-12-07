@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bank</title>
+	<script type="text/javascript" src="myscript.js"></script>
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/jquery.mobile.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src="materialize-v0.97.5/materialize/js/materialize.min.js"></script>
+		<link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+	<link rel="stylesheet"  href="myStyle.css" />
+	 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">     
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="landingPage">
+			<div data-role="header" style="text-shadow: none;background: #E53935">
+				<h1 style="color: black">Request for Atm</h1>
+				<a href="home.html" data-role="button" data-icon="home" data-iconpos="notext" style="background: white;border: none;">Home</a>
+				<a href="index.html" data-role="button" data-icon="back" data-iconpos="notext" style="background: white;border: none;">Back</a>
+			</div><!-- /header -->
+   <div data-role="content" style="text-shadow: none">
+	<div class="row" style="border: 2px solid #a1a1a1;border-radius: 25px">
+	<h2 style="text-align:center;font-size: 150%;margin-top: 2%;margin-bottom: 2%"><u>Fill This Document</u></h2>
+	<div class="input-field col s11">
+	<select class="browser-default" name="bank" id="bank">
+	    <option value="" disabled selected>NAME OF BANK</option>
+	    <option value="CAL">CAL Bank Kwabenya</option>
+	    <option value="Fidelity">Fidelity Bank Ghana Ltd</option>
+	    <option value="Barclacys">Barclacys</option>
+	    <option value="BOG">Bank of Ghana</option>
+	  </select>
+	  </div></br>
+		<div class="input-field col s11">
+     <input placeholder="FIRSTNAME" id="first_name" type="text" class="validate" name="fname">
+     <label for="first_name" class="active"><b>FIRST NAME</b></label>
+        </div>
+			<div class="input-field col s11">
+     <input placeholder="LASTNAME" id="last_name" type="text" class="validate" name="lname">
+     <label for="last_name" class="active"><b>LAST NAME</b></label>
+        </div>
+			<div class="input-field col s11">
+    <input placeholder="PHONE" id="phone" type="text" class="validate" name="phone">
+     <label for="number" class="active"><b>PHONE NUMBER</b></label>
+        </div>
+	<div class="input-field col s11">
+    <input placeholder="EMAIL" id="email" type="email" class="validate" name="email">
+     <label for="email" class="active"><b>EMAIL ADDRESS</b></label>
+     </div>
+     <div class="input-field col s11">
+    <input placeholder="ACCOUNT NUMBER" id="account" type="number" class="validate" name="account">
+     <label for="account" class="active"><b>ACCOUNT NUMBER</b></label>
+     </div>
+        <div class="input-field col s11">
+        <center>
+        <a class="waves-effect btn #e53935 red darken-1" style="border-radius: 25px 10px;color: black;background:white;margin-bottom: 4%;" onclick="request()">SEND</a>
+        </center>
+        </div>
+	</div>
+	</div>
+</div>
+</body>
+</html>

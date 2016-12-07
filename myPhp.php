@@ -13,13 +13,156 @@ $cmd=$_REQUEST['cmd'];
 		case 2:
 			signUp();
 			break;
+		case 3:
+			request();
+			break;
+		case 4:
+			book();
+			break;
+		case 5:
+			logAd();
+			break;
+		case 6:
+			active();
+			break;
+		case 7:
+			req();
+			break;
+		default:
+			exit();
 		}
+
+	function req(){
+		include_once("users.php");
+		$obj=new users();
+		
+		$userReq = $obj->pullReq();
+		if (!$userReq){
+			$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+		}
+
+		$result = $obj->fetch();
+
+   	    if (!$result){
+   	    	$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+		}else{
+			echo '{"result":1, "userR":[';
+
+        while ($result) {
+            echo json_encode($result);
+            $result = $obj->fetch();
+
+            if ($result) {
+                echo ",";
+            }
+        }
+        echo "]}";
+		}	
+
+	}
+	
+	function active(){
+		include_once("users.php");
+		$obj=new users();
+		
+		$active = $obj->pullUsers();
+		if (!$active){
+			$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+		}
+
+		$result = $obj->fetch();
+
+   	    if (!$result){
+   	    	$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+		}else{
+			echo '{"result":1, "active":[';
+
+        while ($result) {
+            echo json_encode($result);
+            $result = $obj->fetch();
+
+            if ($result) {
+                echo ",";
+            }
+        }
+        echo "]}";
+		}	
+
+
+	}
+
+	function logAd(){
+		include_once("users.php");
+		$obj=new users();
+
+		$admin = $obj->loginAdmin($_REQUEST['username'],$_REQUEST['password']);
+		if (!$admin){
+			$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+		}else{
+			$data=array("result"=>"1");
+		    echo json_encode($data);
+			return;
+		}
+	}
+	function book(){
+		include_once("users.php");
+   	    $obj=new users();
+
+   	    $book=$obj->pullHotel();
+   	    if (!$book){
+   	    	$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+   	    }
+   	    $result = $obj->fetch();
+
+   	    if (!$result){
+   	    	$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+   	    }else{
+   	    echo '{"result":1, "hotels":[';
+
+        while ($result) {
+            echo json_encode($result);
+            $result = $obj->fetch();
+
+            if ($result) {
+                echo ",";
+            }
+        }
+        echo "]}";
+      }     	
+	}
+	function request(){
+		include_once("users.php");
+   	    $obj=new users();
+   	    
+   	    $request=$obj->addRequest($_REQUEST['firstname'],$_REQUEST['lastname'],$_REQUEST['bank'],$_REQUEST['phone'],$_REQUEST['account'],$_REQUEST['email']);
+   	    if (!$request){
+   	    	$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+   	    }else{
+   	    	$data=array("result"=>"1");
+		    echo json_encode($data);
+			return;
+   	    }
+	}
 
 	function login(){
 		include_once("users.php");
    	    $obj=new users();
-  //       $username=$_REQUEST['username'];
-		// $password=$_REQUEST['password'];
 		
 		$logDetails=$obj->login($_REQUEST['username'],$_REQUEST['password']);
 	 	
@@ -28,8 +171,10 @@ $cmd=$_REQUEST['cmd'];
 		    echo json_encode($data);
 			return;
 		 } else {
-		 // 	session_start();
-	 	// $_SESSION['USERNAME']=$_REQUEST['username'];
+		 	$result = $obj->fetch();
+		 	$id = $result['USER_ID'];
+		 	session_start();
+	 	    $_SESSION['USER_ID']=$id;
 
 		 	$data=array("result"=>"1");
 			echo json_encode($data);
@@ -47,13 +192,27 @@ $cmd=$_REQUEST['cmd'];
     $phone=$_REQUEST['phone'];
     $password=$_REQUEST['password'];
     $email=$_REQUEST['email'];
+    $validate= mt_rand(1000,5000);
 
-    $row=$obj->newUser($firstname,$lastname,$username,$phone,$password,$email);
+    $row=$obj->newUser($firstname,$lastname,$username,$phone,$password,$email,$validate);
     if (!$row){
     	$data=array("result"=>"0");
 		    echo json_encode($data);
 			return;
 		}else{
+			$number = $phone;
+		    $sender="Predator";
+		    $message="You have successfully registered onto Predator. If your phone number was used without your knowledge for this registration, PLEASE reply NOT ME to +233244504815. If the number is yours, please log in and enjoy the services Predator offers";
+		    $message=preg_replace('/\s+/', '%20', $message);
+		    $sender = urlencode($sender);
+		    $message = urlencode($message);
+			$url="http://52.89.116.249:13013/cgi-bin/sendsms?username=mobileapp&password=foobar&to=$number&from=$sender&text=$message";
+			
+			$ch = curl_init($url);   
+		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			$result = curl_exec($ch);
+		     curl_close($ch);
+
 			$data=array("result"=>"1");
 		    echo json_encode($data);
 			return;	
