@@ -19,7 +19,7 @@
 			alert("Please fill the fields");
 			return;
 		}
-		var theUrl="myPhp.php?cmd=1&username="+username+"&password="+password;
+		var theUrl="http://52.89.116.249/~francis.kornu/predator/myPhp.php?cmd=1&username="+username+"&password="+password;
 		$.ajax(theUrl,
 					{
 					async:true,
@@ -35,7 +35,7 @@ function signUp(){
     var password = $("#password").val();
     var email = $("#email").val();
 
-    var theUrl="myPhp.php?cmd=2&firstname="+firstname+"&lastname="+lastname+"&username="+username+"&phone="+phone+"&password="+password+"&email="+email;
+    var theUrl="http://52.89.116.249/~francis.kornu/predator/myPhp.php?cmd=2&firstname="+firstname+"&lastname="+lastname+"&username="+username+"&phone="+phone+"&password="+password+"&email="+email;
     $.ajax(theUrl,
           {
           async:true,
@@ -55,7 +55,7 @@ function signUp(){
         return;
         }else{
            alert("Account successfully created");
-           window.location="loginUser.html";
+           window.location="http://52.89.116.249/~francis.kornu/predator/loginUser.html";
         }
   }
 
@@ -67,7 +67,7 @@ function signUp(){
     var email = $("#email").val();
     var bank = $("#bank").val();
 
-    var theUrl="myPhp.php?cmd=3&firstname="+firstname+"&lastname="+lastname+"&bank="+bank+"&phone="+phone+"&account="+account+"&email="+email;
+    var theUrl="http://52.89.116.249/~francis.kornu/predator/myPhp.php?cmd=3&firstname="+firstname+"&lastname="+lastname+"&bank="+bank+"&phone="+phone+"&account="+account+"&email="+email;
     alert(theUrl);
     $.ajax(theUrl,
           {
@@ -88,12 +88,12 @@ function signUp(){
         return;
         }else{
            alert("Request successfully made");
-           window.location="home.html";
+           window.location="http://52.89.116.249/~francis.kornu/predator/home.html";
         }
   }
 
   function hotel(){
-          var theUrl="myPhp.php?cmd=4";
+          var theUrl="http://52.89.116.249/~francis.kornu/predator/myPhp.php?cmd=4";
           $.ajax(theUrl,
                 {
                 async:true,
@@ -131,7 +131,7 @@ function signUp(){
 
 
         function join(book){
-          var theUrl="myJoin.php?bId="+book;
+          var theUrl="http://52.89.116.249/~francis.kornu/predator/myJoin.php?bId="+book;
           $.ajax(theUrl,
                 {
                 async:true,
@@ -154,14 +154,14 @@ function signUp(){
                   return;
                 }else if(obj.result==1){
                   alert("Hotel Room was successfully booked");
-                  window.location="home.html";
+                  window.location="http://52.89.116.249/~francis.kornu/predator/home.html";
                 }
         }
 
         function loginAd(){
           var username = $("#adUsername").val();
           var password = $("#adPassword").val();
-          var theUrl="myPhp.php?cmd=5&username="+username+"&password="+password;
+          var theUrl="http://52.89.116.249/~francis.kornu/predator/myPhp.php?cmd=5&username="+username+"&password="+password;
           $.ajax(theUrl,
                 {
                 async:true,
@@ -180,12 +180,12 @@ function signUp(){
                 return;
               }else{
                 alert("Log In was successful");
-                window.location="adminHome.html";
+                window.location="http://52.89.116.249/~francis.kornu/predator/adminHome.html";
               }
         }
 
         function active(){
-          var theUrl="myPhp.php?cmd=6";
+          var theUrl="http://52.89.116.249/~francis.kornu/predator/myPhp.php?cmd=6";
           $.ajax(theUrl,
                 {
                 async:true,
@@ -224,7 +224,7 @@ function signUp(){
         }
 
         function deleteUser(uId){
-          var theUrl="delete.php?user="+uId;
+          var theUrl="http://52.89.116.249/~francis.kornu/predator/delete.php?user="+uId;
           $.ajax(theUrl,
                 {
                 async:true,
@@ -243,12 +243,12 @@ function signUp(){
                 return;
               }else{
                 alert("User was successfully deleted");
-                document.location.href="adminHome.html";
+                document.location.href="http://52.89.116.249/~francis.kornu/predator/adminHome.html";
               }
         }
 
         function userRequest(){
-          var theUrl="myPhp.php?cmd=7";
+          var theUrl="http://52.89.116.249/~francis.kornu/predator/myPhp.php?cmd=7";
           $.ajax(theUrl,
                 {
                 async:true,
