@@ -118,9 +118,11 @@
           map: map,
           position: place.geometry.location
         });
-
+        var contentString = '<div>PLease Take note of the Hotel name</div><a href="bookHotel.html">Book</a>';
         google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
+          infowindow.setContent([
+            place.name,
+            contentString].join("<br />"));
           infowindow.open(map, this);
         });
           }

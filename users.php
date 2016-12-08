@@ -25,23 +25,18 @@ class users extends wrapper{
     	return $this->query($strQuery); 
     }
 
-    function getNumber($id){
-        $strQuery="select ROOM_AVAILABLE from book where BOOK_ID=$id";
-        return $this->query($strQuery);
-    }
-
-    function bookRoom($bId,$uId){
-    	$strQuery="insert into relationship set USER_ID=$uId, BOOK_ID=$bId";
-    	return $this->query($strQuery);
-    }
-
-    function reduceRoom($bId){
-    	$strQuery="update book set ROOM_AVAILABLE = ROOM_AVAILABLE-1 where BOOK_ID = $bId";
+    function bookRoom($hotel,$fname,$lname,$phone,$email){
+    	$strQuery="insert into book set HOTEL_NAME='$hotel', FIRSTNAME='$fname',LASTNAME='$lname',PHONE='$phone',EMAIL='$email',DATE=NOW()";
     	return $this->query($strQuery);
     }
 
     function loginAdmin($username,$password){
     	$strQuery="select USERNAME,PASSWORD from admin where USERNAME='$username' and PASSWORD=MD5($password)";
+    	return $this->query($strQuery);
+    }
+
+    function report($area,$firstname,$lastname,$issue,$phone,$email){
+    	$strQuery="insert into report set AREA='$area',FIRSTNAME='$firstname',LASTNAME='$lastname',PHONE='$phone',EMAIL='$email',ISSUE='$issue',DATE=NOW()";
     	return $this->query($strQuery);
     }
 

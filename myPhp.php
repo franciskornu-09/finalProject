@@ -28,10 +28,26 @@ $cmd=$_REQUEST['cmd'];
 		case 7:
 			req();
 			break;
+		case 8:
+			report();
+			break;
 		default:
 			exit();
 		}
-
+	function report(){
+		include_once("users.php");
+   	    $obj=new users();
+   	    $request=$obj->report($_REQUEST['area'],$_REQUEST['firstname'],$_REQUEST['lastname'],$_REQUEST['issue'],$_REQUEST['phone'],$_REQUEST['email']);
+   	    if (!$request){
+   	    	$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+   	    }else{
+   	    	$data=array("result"=>"1");
+		    echo json_encode($data);
+			return;
+   	    }
+	}
 	function req(){
 		include_once("users.php");
 		$obj=new users();

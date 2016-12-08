@@ -10,8 +10,8 @@
 		<link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
 		<link rel="stylesheet" href="css/jquery.mobile.theme.css" />
 	<link rel="stylesheet"  href="myStyle.css" />
-	 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">     
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 </head>
 <body>
@@ -25,12 +25,11 @@
 	<div class="row" style="border: 2px solid #a1a1a1;border-radius: 25px">
 	<h2 style="text-align:center;font-size: 150%;margin-top: 2%;margin-bottom: 2%"><u>Fill This Document</u></h2>
 	<div class="input-field col s11">
-	<select class="browser-default" name="bank" id="bank">
-	    <option value="" disabled selected>NAME OF BANK</option>
-	    <option value="CAL">CAL Bank Kwabenya</option>
-	    <option value="Fidelity">Fidelity Bank Ghana Ltd</option>
-	    <option value="Barclacys">Barclacys</option>
-	    <option value="BOG">Bank of Ghana</option>
+	<select class="browser-default" name="hotel" id="hotel">
+	    <option value="" disabled selected>NAME OF HOTEL</option>
+	    <option value="Moowal">Moowal Grand Hotel</option>
+	    <option value="Benjul">Benjul Guest House</option>
+	    <option value="Royal">Accra Royal Castle Apartments & Suites</option>
 	  </select>
 	  </div></br>
 		<div class="input-field col s11">
@@ -50,12 +49,12 @@
      <label for="email" class="active"><b>EMAIL ADDRESS</b></label>
      </div>
      <div class="input-field col s11">
-    <input placeholder="ACCOUNT NUMBER" id="account" type="number" class="validate" name="account">
-     <label for="account" class="active"><b>ACCOUNT NUMBER</b></label>
+    <input id="date" type="date" class="validate" name="date">
+     <label for="date" class="active"><b>DATE</b></label>
      </div>
         <div class="input-field col s11">
         <center>
-        <a class="waves-effect btn #e53935 red darken-1" style="border-radius: 25px 10px;color: black;background:white;margin-bottom: 4%;" onclick="request()">SEND</a>
+        <a class="waves-effect btn #e53935 red darken-1" style="border-radius: 25px 10px;color: black;background:white;margin-bottom: 4%;" onclick="join()">BOOK</a>
         </center>
         </div>
 	</div>

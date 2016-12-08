@@ -7,29 +7,15 @@ exit();
 
 include_once("users.php");
 	$obj=new users();
-  $main=new users();
-  $red = new users();
-    
-  $bookId=$_REQUEST['bId'];
 
-    $number = $obj->getNumber($bookId);
+  $book = $obj->bookRoom($_REQUEST['hotel'],$_REQUEST['firstname'],$_REQUEST['lastname'],$_REQUEST['phone'],$_REQUEST['email']);
     
-    $result=$obj->fetch();
-    $zero = $result['ROOM_AVAILABLE'];
-    if ($zero < 1){
+    if (!$book){
       $data=array("result"=>"0");
          echo json_encode($data);
        return;
-    }
-
-    $book = $main->bookRoom($bookId,$_SESSION['USER_ID']);
-    $reduce = $red->reduceRoom($bookId);
-    if ($book && $reduce){
-      $data=array("result"=>"1");
-         echo json_encode($data);
-       return;
     }else{
-      $data=array("result"=>"2");
+      $data=array("result"=>"1");
          echo json_encode($data);
        return;
     }
