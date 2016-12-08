@@ -1,8 +1,9 @@
-document.getElementById("search").addEventListener("click",findContact);
+document.getElementById("searchB").addEventListener("click",findContact);
 
 function findContact(){
 	var options = new ContactFindOptions();
-   options.filter = "";
+	var name = document.getElementById("search");
+   options.filter = "name";
    options.multiple = true;
 
    fields = ["displayName"];
