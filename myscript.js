@@ -279,6 +279,107 @@ function signUp(){
               }
         }
 
+        function userBookings(){
+           var theUrl="myPhp.php?cmd=10";
+          $.ajax(theUrl,
+                {
+                async:true,
+                complete:bookComplete}
+                );
+        }
+
+        function bookComplete(xhr,status){
+          if(status!="success"){
+              alert("Error");
+                  return;
+              }
+              var obj=$.parseJSON(xhr.responseText);
+              if (obj.result==0){
+                alert("Failed to delete User");
+                return;
+              }
+
+              var req="";
+                for (var i in obj.book){
+                req += "<div class='card #bf360c deep-orange darken-4'>";
+                req += "<div class='card-content white-text'>";
+                req += "<span class='card-title' style='color: white'>"+obj.book[i].HOTEL_NAME+"</span>";
+                req += "<h6>"+"Firstname: "+"<b>"+obj.book[i].FIRSTNAME+"</b>"+"</h6>";
+                req += "<h6>"+"Lastname: "+"<b>"+obj.book[i].LASTNAME+"</b>"+"</h6>";
+                req += "<h6>"+"Email: "+"<b>"+obj.book[i].EMAIL+"</b>"+"</h6>";
+                req += "<h6>"+"Phone Number: "+"<b>"+obj.book[i].PHONE+"</b>"+"</h6>";
+                req += "<h6>"+"Date: "+"<b>"+obj.book[i].DATE+"</b>"+"</h6>";
+                req += "</div>";
+                req += "<div class='card-action'>";
+                req += "<a onclick='approve("+obj.book[i].PHONE+")'>"+"APPROVE"+"</a>";
+                req += "</div>";
+                req += "</div>";
+              }
+              $("#booking").html(req);
+        }
+
+        function approve(number){
+          var theUrl="approve.php?number="+number;
+          $.ajax(theUrl,
+                {
+                async:true,
+                complete:approveComplete}
+                );
+        }
+
+        function approveComplete(xhr,status){
+          if(status!="success"){
+              alert("Error");
+                  return;
+              }
+              var obj=$.parseJSON(xhr.responseText);
+              if (obj.result==0){
+                alert("Failed to approve");
+                return;
+              }else{
+                alert("Request was successfully approved");
+                document.location.href="adminHome.html";
+              }
+        }
+        function userReport(){
+          var theUrl="myPhp.php?cmd=9";
+          $.ajax(theUrl,
+                {
+                async:true,
+                complete:repComplete}
+                );
+        }
+
+        function repComplete(xhr,status){
+          if(status!="success"){
+              alert("Error");
+                  return;
+              }
+              var obj=$.parseJSON(xhr.responseText);
+              if (obj.result==0){
+                alert("Failed to delete User");
+                return;
+              }
+
+              var req="";
+                for (var i in obj.report){
+                req += "<div class='card #bf360c deep-orange darken-4'>";
+                req += "<div class='card-content white-text'>";
+                req += "<span class='card-title' style='color: white'>"+obj.report[i].AREA+"</span>";
+                req += "<h6>"+"Firstname: "+"<b>"+obj.report[i].FIRSTNAME+"</b>"+"</h6>";
+                req += "<h6>"+"Lastname: "+"<b>"+obj.report[i].LASTNAME+"</b>"+"</h6>";
+                req += "<h6>"+"Issue: "+"<b>"+obj.report[i].ISSUE+"</b>"+"</h6>";
+                req += "<h6>"+"Email: "+"<b>"+obj.report[i].EMAIL+"</b>"+"</h6>";
+                req += "<h6>"+"Phone Number: "+"<b>"+obj.report[i].PHONE+"</b>"+"</h6>";
+                req += "<h6>"+"Date: "+"<b>"+obj.report[i].DATE+"</b>"+"</h6>";
+                req += "</div>";
+                req += "<div class='card-action'>";
+                req += "</div>";
+                req += "</div>";
+              }
+              $("#reportU").html(req);
+        }
+
         function userRequest(){
           var theUrl="myPhp.php?cmd=7";
           $.ajax(theUrl,

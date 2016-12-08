@@ -31,9 +31,80 @@ $cmd=$_REQUEST['cmd'];
 		case 8:
 			report();
 			break;
+		case 9:
+			userReport();
+			break;
+		case 10:
+			userBook();
+			break;
 		default:
 			exit();
 		}
+
+	function userBook(){
+		include_once("users.php");
+		$obj=new users();
+		
+		$userReq = $obj->pullBookings();
+		if (!$userReq){
+			$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+		}
+
+		$result = $obj->fetch();
+
+   	    if (!$result){
+   	    	$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+		}else{
+			echo '{"result":1, "book":[';
+
+        while ($result) {
+            echo json_encode($result);
+            $result = $obj->fetch();
+
+            if ($result) {
+                echo ",";
+            }
+        }
+        echo "]}";
+		}	
+	}
+
+	function userReport(){
+		include_once("users.php");
+		$obj=new users();
+		
+		$userReq = $obj->pullReport();
+		if (!$userReq){
+			$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+		}
+
+		$result = $obj->fetch();
+
+   	    if (!$result){
+   	    	$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+		}else{
+			echo '{"result":1, "report":[';
+
+        while ($result) {
+            echo json_encode($result);
+            $result = $obj->fetch();
+
+            if ($result) {
+                echo ",";
+            }
+        }
+        echo "]}";
+		}	
+
+	}
 	function report(){
 		include_once("users.php");
    	    $obj=new users();

@@ -7,6 +7,7 @@
 	  background-size: cover;
 }
 
+
 ::-webkit-input-placeholder {
    text-align: center;
    color: white;
@@ -26,7 +27,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 5%;
-	width: 75%;
+	width: 85%;
 	height: absolute;
 	border-style: solid;  
     border-width: 3px 3px 3px 3px;  
@@ -44,6 +45,13 @@
     text-align: center;
 }
 
+.inputw{
+	border: 2px solid #a1a1a1;
+    border-radius: 25px;
+    background-color: white;
+    color: #E53935;
+    text-align: center;
+}
 .inputb{
 	border: 2px solid #a1a1a1;
     border-radius: 25px;

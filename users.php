@@ -45,6 +45,15 @@ class users extends wrapper{
     	return $this->query($strQuery);
     }	
 
+    function pullBookings(){
+    	$strQuery = "select HOTEL_NAME,FIRSTNAME,LASTNAME,PHONE,DATE,EMAIL from book";
+    	return $this->query($strQuery);
+    }
+
+    function pullReport(){
+    	$strQuery = "select AREA,FIRSTNAME,LASTNAME,PHONE,ISSUE,DATE,EMAIL from report";
+    	return $this->query($strQuery);
+    }
     function pullReq(){
     	$strQuery="select FIRSTNAME,LASTNAME,PHONE,ACCOUNT,BANK,DATE,EMAIL from request";
     	return $this->query($strQuery);
