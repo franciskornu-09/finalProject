@@ -8,7 +8,9 @@
 	<script src="scripts/jquery.mobile.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
       <script src="materialize-v0.97.5/materialize/js/materialize.min.js"></script>
-		<link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+		<link rel="stylesheet" type="text/css" href="font_awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="font_awesome/css/font-awesome.min.css">
+    <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
 		<link rel="stylesheet" href="css/jquery.mobile.theme.css" />
 	<link rel="stylesheet"  href="myStyle.css" />
 	 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -26,12 +28,16 @@
         function fuel(){
           document.location.href="fuel.html";
         }
+
+        function bus(){
+          document.location.href="bus.html";
+        }
       </script>
 </head>
 <body>
 <!-- style="background-color:#CC162E" -->
 	<div data-role="page" id="landingPage">
-			<div data-role="header" style="text-shadow: none;background: #E53935">
+			<div data-role="header" style="text-shadow: none;background: white">
 				<h1 style="color: black">Dashboard</h1>
 				<a href="dashboard.html" data-role="button" data-icon="home" data-iconpos="notext" style="background: white;border: none;">Home</a>
 				<a href="index.html" data-role="button" data-icon="back" data-iconpos="notext" style="background: white;border: none;">Back</a>
@@ -53,40 +59,52 @@
 
       </div>
         <div class="col s12 m6">
-          <div class="card #e53935 red darken-1">
-            <div class="card-content white-text">
-              <span class="card-title" style="color: black">Atm</span>
-              <!-- <p style="color:black">This is a panel to display all ATM machines around you. Click on SHOW below and take a look</p> -->
-            </div>
-            <div class="card-action">
-              <a onclick="atm()">SHOW</a>
-            </div>
-          </div>
+          <br>
+           <a class="button #ff8a80 red accent-1 btn-large" style="color: black;width: 250px" onclick="atm()"><i style="float: left" class="fa fa-money fa-10x" aria-hidden="true"></i>&nbsp;&nbsp;ATMs</a>
         </div>
         <div class="col s12 m6">
-          <div class="card #e53935 red darken-1">
+        <br>
+        <a class="button #ff5252 red accent-2 btn-large" style="color: white;width: 250px" onclick="fuel()"><i style="float: left" class="fa fa-car fa-10x" aria-hidden="true"></i>&nbsp;&nbsp;FUEL&nbsp;STATIONS</a>
+          <!-- <div class="card #e53935 red darken-1">
             <div class="card-content white-text">
               <span class="card-title" style="color: black">Fuel Station</span>
-              <!-- <p style="color:black">This is a panel to display all Fuel Stations around you. Click on SHOW below and take a look</p> -->
+              
             </div>
             <div class="card-action">
               <a onclick="fuel()">SHOW</a>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="col s12 m6">
-          <div class="card #e53935 red darken-1">
+        <br>
+        <a class="button #ff1744 red accent-3 btn-large" style="color: white;width: 250px" onclick="hotel()"><i style="float: left" class="fa fa-bed fa-10x" aria-hidden="true"></i>&nbsp;&nbsp;HOTELS</a>
+        
+          <!-- <div class="card #e53935 red darken-1">
             <div class="card-content white-text">
               <span class="card-title" style="color:black">Hotels</span>
-              <!-- <p style="color:black">This is a panel to display all Restaurants around you. Click on SHOW below and take a look</p> -->
+              <p style="color:black">This is a panel to display all Restaurants around you. Click on SHOW below and take a look</p>
             </div>
             <div class="card-action">
               <a onclick="hotel()">SHOW</a>
             </div>
-          </div>
+          </div> -->
+        </div>
+          <div class="col s12 m6">
+        <br>
+        <a class="button #d50000 red accent-4 btn-large" style="color: white;width: 250px" onclick="bus()"><i style="float: left" class="fa fa-bus fa-10x" aria-hidden="true"></i>&nbsp;&nbsp;BUS&nbsp;STATIONS</a>
+        
+          <!-- <div class="card #e53935 red darken-1">
+            <div class="card-content white-text">
+              <span class="card-title" style="color:black">Hotels</span>
+              <p style="color:black">This is a panel to display all Restaurants around you. Click on SHOW below and take a look</p>
+            </div>
+            <div class="card-action">
+              <a onclick="hotel()">SHOW</a>
+            </div>
+          </div> -->
         </div>
         <div>
-      <a class="waves-effect btn" href="index.html" style="border-radius: 25px 10px;color: #E53935;width: 60%;background:white">Log out</a>
+      <a class="waves-effect btn" href="index.html" style="border-radius: 25px 10px;color: #E53935;width: 60%;background:white;margin-top: 50px">Log out</a>
       </div>
       </div>      			
 	  	</div>
