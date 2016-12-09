@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank</title>
+  <script type="text/javascript" src="myscript.js"></script>
+  <script src="scripts/jquery.js"></script>
+  <script src="scripts/jquery.mobile.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src="materialize-v0.97.5/materialize/js/materialize.min.js"></script>
+    <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+  <link rel="stylesheet"  href="myStyle.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="landingPage">
+      <div data-role="header" style="text-shadow: none;background: white">
+        <h1 style="color: black">Rating</h1>
+        <a href="dashboard.html" data-role="button" data-icon="home" data-iconpos="notext" style="background: white;border: none;">Home</a>
+        <a href="index.html" data-role="button" data-icon="back" data-iconpos="notext" style="background: white;border: none;">Back</a>
+      </div>
+      <div data-role="content" style="text-shadow: none">
+<div style="border: 2px solid #a1a1a1;border-radius: 25px">
+  <h2 style="text-align:center;font-size: 150%;margin-top: 2%;margin-bottom: 2%"><u>Rate my APP</u></h2>
+     <div class="row">
+      <div class="col s6" style="text-align: center;margin-left: 20%">
+     <label style="text-align: center;font-size: 120%"> Stars:</label>
+  <!-- <input type="range" class="inputw" name="points" min="1" max="5"> -->
+        <input type=range min=1 max=5  step=1 id="rangeVal">
+        </div>
+        <div class="input-field col s11">
+     <input placeholder="COMMENT" id="comment" type="text" class="validate" name="comment">
+     <label for="comment" class="active"><b>COMMENT</b></label>
+        </div>
+         <center>
+        <div class="col s12">
+        <br><br>
+        <a class="waves-effect btn-large" onclick="range()" style="border-radius: 25px 10px;color: white;width: 100%;background:#CC162E">Rate</a>
+        </div>
+        </center>
+        </div>
+        </div>
+        </div>
+        </div>
+</body>
+</html>
