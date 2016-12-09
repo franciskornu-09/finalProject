@@ -63,5 +63,10 @@ class users extends wrapper{
     	$strQuery="delete from user where USER_ID = $uid";
     	return $this->query($strQuery);
     }
+	
+    function rate($value,$comment){
+    	$strQuery="insert into rate set RATE=$value, COMMENT='$comment'";
+    	return $this->query($strQuery);
+    }
 }
 ?>
