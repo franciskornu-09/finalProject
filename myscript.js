@@ -418,3 +418,31 @@ function signUp(){
               }
               $("#requestU").html(req);
         }
+	
+	function range(){
+          var range = $("#rangeVal").val();
+          var comment = $("#comment").val();
+          var theUrl="http://52.89.116.249/~francis.kornu/predator/myPhp.php?cmd=11&range="+range+"&comment="+comment;
+          alert(theUrl);
+          $.ajax(theUrl,
+                {
+                async:true,
+                complete:rangeComplete}
+                );
+        }
+
+        function rangeComplete(xhr,status){
+          if(status!="success"){
+              alert("Error");
+                  return;
+              }
+              var obj=$.parseJSON(xhr.responseText);
+              alert(obj.result);
+              if (obj.result==0){
+                alert("Failed to delete User");
+                return;
+              }else{
+                alert("Rating was successfully");
+                document.location.href="home.html";
+              }
+        }
