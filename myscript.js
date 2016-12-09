@@ -423,7 +423,7 @@ function signUp(){
           var range = $("#rangeVal").val();
           var comment = $("#comment").val();
           var theUrl="http://52.89.116.249/~francis.kornu/predator/myPhp.php?cmd=11&range="+range+"&comment="+comment;
-          alert(theUrl);
+       
           $.ajax(theUrl,
                 {
                 async:true,
@@ -437,7 +437,7 @@ function signUp(){
                   return;
               }
               var obj=$.parseJSON(xhr.responseText);
-              alert(obj.result);
+              
               if (obj.result==0){
                 alert("Failed to delete User");
                 return;
