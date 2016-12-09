@@ -37,9 +37,28 @@ $cmd=$_REQUEST['cmd'];
 		case 10:
 			userBook();
 			break;
+		case 11:
+			rangeApp();
+			break;
 		default:
 			exit();
 		}
+	
+	function rangeApp(){
+		include_once("users.php");
+		$obj=new users();
+		
+		$userReq = $obj->rate($_REQUEST['range'],$_REQUEST['comment']);
+		if (!$userReq){
+			$data=array("result"=>"0");
+		    echo json_encode($data);
+			return;
+		}else{
+			$data=array("result"=>"1");
+		    echo json_encode($data);
+			return;
+		}
+	}
 
 	function userBook(){
 		include_once("users.php");
