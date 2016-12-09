@@ -1,6 +1,6 @@
+function findContact(){
 document.getElementById("searchB").addEventListener("click",findContact);
 
-function findContact(){
 	var options = new ContactFindOptions();
 	var name = document.getElementById("search");
    options.filter = "name";
