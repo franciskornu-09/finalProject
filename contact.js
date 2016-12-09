@@ -1,21 +1,18 @@
-function findContact(){
-document.getElementById("searchB").addEventListener("click",findContact);
+(function() {
 
-	var options = new ContactFindOptions();
-	var name = document.getElementById("search");
-   options.filter = "name";
-   options.multiple = true;
+document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+function onDeviceReady() {
 
-   fields = ["displayName"];
-   navigator.contacts.find(fields, contactfindSuccess, contactfindError, options);
-    
-   function contactfindSuccess(contacts) {
-      for (var i = 0; i < contacts.length; i++) {
-         alert("Display Name = " + contacts[i].displayName);
-      }
-   }
-	
-   function contactfindError(message) {
-      alert('Failed because: ' + message);
-   }
+document.getElementById("contact").onclick = function() {
+navigator.contacts.pickContact(function(contact){
+       alert('The following contact has been selected:' + JSON.stringify(contact));
+
+       document.getElementById("search").value=contact.phoneNumbers[0].value;
+       alert(contact.phoneNumbers[0].value);
+   },function(err){
+       alert('Error: ' + err);
+   });
 }
+} ;
+})();
+
