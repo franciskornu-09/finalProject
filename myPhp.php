@@ -310,8 +310,6 @@ $cmd=$_REQUEST['cmd'];
 		    $sender="Predator";
 		    $message="You have successfully registered onto Predator. If your phone number was used without your knowledge for this registration, PLEASE reply NOT ME to +233244504815. If the number is yours, please log in and enjoy the services Predator offers";
 		    $message=preg_replace('/\s+/', '%20', $message);
-		    $sender = urlencode($sender);
-		    $message = urlencode($message);
 			$url="http://52.89.116.249:13013/cgi-bin/sendsms?username=mobileapp&password=foobar&to=$number&from=$sender&text=$message";
 			
 			$ch = curl_init($url);   
